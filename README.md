@@ -90,7 +90,12 @@ The Step Function performs the following in sequence:
 ## Notification 
 - If the Glue Job fails or succeeds, an SNS topic sends email alerts to subscribed users
 ![step Function](images/stepfunction-success.png)
+
+![email notification](images/successnoti.png)
+
 ![step Function](images/stepfunction-fail.png)
+
+![step function](images/fail%20notification.png)
 
 ---
 
@@ -117,10 +122,29 @@ The Step Function performs the following in sequence:
 ## Step 5 – Redshift External Table (Spectrum)
 
 - Created an **external schema** in Redshift to access Glue Catalog tables:
-```sql
+
 CREATE EXTERNAL SCHEMA spectrum_movies
 FROM data catalog
 DATABASE 'movies'
 IAM_ROLE 'IAM_ROLE 'arn:aws:iam::####:role/service-role/mazonRedshift-####''
 CREATE EXTERNAL DATABASE IF NOT EXISTS;
+
+
+SELECT 
+series_title,
+ released_year,
+ imdb_rating, genre, 
+ meta_score, 
+ director, 
+ star1,
+ star2,
+ star3,
+ star4,
+ no_of_votes,
+ gross
+from spectrum_movies.processed_processed_data
+limit 5
+
+![Redshift](images/redshift_output.png)
+
 
