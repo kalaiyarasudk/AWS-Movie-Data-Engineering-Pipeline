@@ -121,7 +121,8 @@ CREATE EXTERNAL DATABASE IF NOT EXISTS;
 
 ---
 ## Notification 
-On ETL job failure or success, users are notified via Amazon SNS email.
+- On ETL job failure or success, users are notified via Amazon SNS email.
 
-![step function Success](images/stepfunction%20success.png)
-![step Function fail](images/stepfunction%20fail.png)
+![step function](images/stepfunction-success.png)
+![step Function fail](images/stepfunction-fail.png)
+
