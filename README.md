@@ -21,19 +21,8 @@ The pipeline performs the following steps:
 
 ## Architecture Diagram
 
-arw_data in s3 --> lambda function (trigger) -- stepfunction 
-													|
-												start Crawler
-												    |
-												run glue job
-													|
-												if glue job fails or sucess -- send notification
-																		|
-																	run crawler for processed data
-																		|
-																	query from redshift
+![Architecture](images/Architecture.png)
 																	
-
 ---
 
 ## Dataset Schema
@@ -123,6 +112,7 @@ The Step Function performs the following in sequence:
 
 - Created an **external schema** in Redshift to access Glue Catalog tables:
 
+```sql
 CREATE EXTERNAL SCHEMA spectrum_movies
 FROM data catalog
 DATABASE 'movies'
@@ -144,6 +134,7 @@ series_title,
  gross
 from spectrum_movies.processed_processed_data
 limit 5
+```
 
 ![Redshift](images/redshift_output.png)
 
