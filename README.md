@@ -87,6 +87,11 @@ The Step Function performs the following in sequence:
 
 ![step Function](images/stepfunction.png)
 
+## Notification 
+- If the Glue Job fails or succeeds, an SNS topic sends email alerts to subscribed users
+![step Function](images/stepfunction-success.png)
+![step Function](images/stepfunction-fail.png)
+
 ---
 
 ## Step 3 – Glue Job: Data Cleaning
@@ -118,11 +123,4 @@ FROM data catalog
 DATABASE 'movies'
 IAM_ROLE 'IAM_ROLE 'arn:aws:iam::####:role/service-role/mazonRedshift-####''
 CREATE EXTERNAL DATABASE IF NOT EXISTS;
-
----
-## Notification 
-- On ETL job failure or success, users are notified via Amazon SNS email.
-
-![step function](images/stepfunction-success.png)
-![step Function fail](images/stepfunction-fail.png)
 
