@@ -119,8 +119,9 @@ DATABASE 'movies'
 IAM_ROLE 'IAM_ROLE 'arn:aws:iam::####:role/service-role/mazonRedshift-####''
 CREATE EXTERNAL DATABASE IF NOT EXISTS;
 
-## Notifications (SNS)
+---
+## Notification 
 On ETL job failure or success, users are notified via Amazon SNS email.
 
-![step Function success](images/stepfunction%20success.png)
+![step function Success](images/stepfunction%20success.png)
 ![step Function fail](images/stepfunction%20fail.png)
